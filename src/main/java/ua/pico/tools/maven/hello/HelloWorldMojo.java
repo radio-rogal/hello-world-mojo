@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 Vitaliy Berdinskikh AKA UR6LAD
+ * Copyright (c) 2013,2021 Witalij Berdinskich
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,12 +23,10 @@
 package ua.pico.tools.maven.hello;
 
 import org.apache.maven.plugin.AbstractMojo;
-
 import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-
 import org.apache.maven.project.MavenProject;
 
 /**
@@ -40,7 +38,7 @@ public class HelloWorldMojo extends AbstractMojo {
 	/**
 	 * Maven project
 	 */
-	@Component
+	@Parameter( defaultValue = "${project}", readonly = true )
 	private MavenProject project;
 
 	/**

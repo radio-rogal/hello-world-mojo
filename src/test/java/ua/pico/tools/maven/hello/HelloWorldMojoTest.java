@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 Vitaliy Berdinskikh AKA UR6LAD
+ * Copyright (c) 2013,2021 Witalij Berdinskich
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,51 +22,46 @@
 
 package ua.pico.tools.maven.hello;
 
-import java.util.Properties;
-
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.Assert.assertEquals;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import java.util.Properties;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
+@Tag("fast")
 public class HelloWorldMojoTest {
 
 	private static final String HELLO_PROPERTY = "hello.message";
 	private static final String TEST_MESSAGE = "544553545F4D455353414745";
 
-	@Mock private Log log;
-	@Mock private MavenProject project;
+	@Mock
+	private Log log;
+	@Mock
+	private MavenProject project;
 
-	private Properties projectProperties;
+	@InjectMocks
 	private HelloWorldMojo testInstance;
 
+	private Properties projectProperties;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		projectProperties = new Properties();
-		testInstance = new HelloWorldMojo();
-		testInstance.setLog(log);
 		testInstance.setMessage(TEST_MESSAGE);
-		testInstance.setProject(project);
 
 		when(project.getProperties()).thenReturn(projectProperties);
-	}
-
-	@After
-	public void teadDown() {
-		projectProperties = null;
-		testInstance = null;
 	}
 
 	@Test
