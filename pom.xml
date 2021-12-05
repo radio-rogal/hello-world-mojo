@@ -27,7 +27,7 @@
 
 	<groupId>ua.pico.tools</groupId>
 	<artifactId>hello-maven-plugin</artifactId>
-	<version>0.2-SNAPSHOT</version>
+	<version>0.2</version>
 	<packaging>maven-plugin</packaging>
 
 	<name>Hello World Plugin</name>
