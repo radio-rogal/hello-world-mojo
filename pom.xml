@@ -154,7 +154,7 @@
     <junit-jupiter.version>5.10.0</junit-jupiter.version>
     <mockito.version>5.5.0</mockito.version>
     <plugin-annotations.version>3.9.0</plugin-annotations.version>
-    <plugin-api.version>3.9.4</plugin-api.version>
+    <plugin-api.version>3.9.5</plugin-api.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <slf4j.version>2.0.9</slf4j.version>
   </properties>
